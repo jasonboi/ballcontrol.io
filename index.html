@@ -14,7 +14,7 @@
             text-align: center;
             font-size: 24px;
         }
-        #startButton {
+        #startButton, #stopButton, #requestPermissionButton {
             display: block;
             margin: 20px auto;
             padding: 10px 20px;
@@ -25,7 +25,10 @@
 <body>
     <div id="score">Score: 0</div>
     <canvas id="gameCanvas" width="400" height="600"></canvas>
-    <button id="startButton">Start Game</button>
+
+    <button id="requestPermissionButton">Request Sensor Permission</button>
+    <button id="startButton" disabled>Start Game</button>
+    <button id="stopButton" disabled>Stop Game</button>
 
     <script src="game.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gyronorm@latest/dist/gyronorm.complete.min.js"></script>
