@@ -1,7 +1,7 @@
 body {
     margin: 0;
     overflow: hidden;
-    background-color: #f0f0f0;
+    background-color: #E1ECC8;
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: flex-start; /* 更靠左对齐 */
@@ -21,6 +21,7 @@ body {
     border: 1px solid #333;
     width: 100%; /* 画布宽度适应容器 */
     height: 100%; /* 画布高度适应容器 */
+    background-color: #F7FFE5;
 }
 
 #scoreDisplay {
@@ -36,14 +37,14 @@ body {
 #controls {
     position: absolute;
     top: 50%;
-    right: 10vw;  /* 将按钮更靠近画布右侧 */
+    right: 6vw;  /* 将按钮更靠近画布右侧 */
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
 }
 
 button {
-    font-size: 1.5vw; /* 按钮文字大小 */
+    font-size: 2vw; /* 按钮文字大小 */
     padding: 10px 20px;
     margin: 10px 0;
     border: none;
@@ -53,13 +54,13 @@ button {
 }
 
 #permissionButton {
-    background-color: #2196F3;
+    background-color: #4477CE;
 }
 
 #startButton {
-    background-color: #8BC34A;
+    background-color: #005B41;
 }
 
 #stopButton {
-    background-color: #F44336;
+    background-color: #FF204E;
 }
