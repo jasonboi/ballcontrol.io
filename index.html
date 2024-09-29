@@ -3,61 +3,8 @@
 <head>
     <title>Gyroscope Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-            background-color: #f0f0f0;
-            font-family: Arial, sans-serif;
-        }
-        #gameContainer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100vw;
-            height: 100vh;
-            position: relative;
-            left: -150px; /* 将画布向左移动 150px */
-        }
-        #gameCanvas {
-            border: 1px solid #333;
-        }
-        #scoreDisplay {
-            position: absolute;
-            top: 50px; /* 将 Score 移动到画布正上方 */
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 48px;
-            font-family: "Caveat", cursive;
-            z-index: 1; /* 确保 Score 显示在画布上方 */
-        }
-        #controls {
-            position: absolute;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-        }
-        button {
-            font-size: 24px;
-            padding: 15px 30px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 5px;
-            color: white;
-            cursor: pointer;
-        }
-        #permissionButton {
-            background-color: #2196F3;
-        }
-        #startButton {
-            background-color: #8BC34A;
-        }
-        #stopButton {
-            background-color: #F44336;
-        }
-    </style>
+    <!-- 引用外部 CSS 文件 -->
+    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
 </head>
 <body>
