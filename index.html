@@ -1,34 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
+    <title>Gyroscope Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gravity Ball Game</title>
     <style>
-        canvas {
-            border: 2px solid black;
-            display: block;
-            margin: auto;
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
         }
-        #score {
-            text-align: center;
+        #gameContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+        }
+        #gameCanvas {
+            border: 1px solid #333;
+        }
+        #scoreDisplay {
+            position: absolute;
+            top: 20px;
+            right: 20px;
             font-size: 24px;
+            font-family: "Caveat", cursive;
         }
-        #startButton, #stopButton, #requestPermissionButton {
-            display: block;
-            margin: 20px auto;
-            padding: 10px 20px;
-            font-size: 18px;
+        #controls {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+        }
+        button {
+            font-size: 24px;
+            padding: 15px 30px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+        #permissionButton {
+            background-color: #2196F3;
+        }
+        #startButton {
+            background-color: #8BC34A;
+        }
+        #stopButton {
+            background-color: #F44336;
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="score">Score: 0</div>
-    <canvas id="gameCanvas" width="400" height="600"></canvas>
-
-    <button id="requestPermissionButton">Request Sensor Permission</button>
-    <button id="startButton" disabled>Start Game</button>
-    <button id="stopButton" disabled>Stop Game</button>
+    <div id="gameContainer">
+        <canvas id="gameCanvas" width="800" height="450"></canvas>
+    </div>
+    <div id="scoreDisplay">Score: 0</div>
+    <div id="controls">
+        <button id="permissionButton">Grant Permission</button>
+        <button id="startButton">Start</button>
+        <button id="stopButton" disabled>Stop</button>
+    </div>
 
     <script src="game.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gyronorm@latest/dist/gyronorm.complete.min.js"></script>
