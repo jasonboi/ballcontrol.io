@@ -16,16 +16,20 @@
             align-items: center;
             width: 100vw;
             height: 100vh;
+            position: relative;
+            left: -150px; /* 将画布向左移动 150px */
         }
         #gameCanvas {
             border: 1px solid #333;
         }
         #scoreDisplay {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 24px;
+            top: 50px; /* 将 Score 移动到画布正上方 */
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 48px;
             font-family: "Caveat", cursive;
+            z-index: 1; /* 确保 Score 显示在画布上方 */
         }
         #controls {
             position: absolute;
@@ -59,11 +63,12 @@
 <body>
     <div id="gameContainer">
         <canvas id="gameCanvas" width="800" height="450"></canvas>
+        <div id="scoreDisplay">Score: 0</div>
     </div>
-    <div id="scoreDisplay">Score: 0</div>
+
     <div id="controls">
         <button id="permissionButton">Grant Permission</button>
-        <button id="startButton">Start</button>
+        <button id="startButton" disabled>Start</button>
         <button id="stopButton" disabled>Stop</button>
     </div>
 
