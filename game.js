@@ -103,11 +103,13 @@ async function requestDeviceOrientation() {
     }
 }
 
+// 绑定按钮点击事件
+const startButton = document.getElementById('startButton');
+startButton.addEventListener('click', () => {
+    requestDeviceOrientation();
+    startButton.style.display = 'none'; // 隐藏按钮
+});
+
 // 游戏主循环
 generateTargets();
 draw();
-
-// 在页面加载时请求权限
-window.onload = () => {
-    requestDeviceOrientation();
-};
