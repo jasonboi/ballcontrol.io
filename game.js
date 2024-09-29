@@ -1,10 +1,10 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 let score = 0;
-let ball = { x: canvas.width / 2, y: canvas.height / 2, radius: 35, color: 'blue' };
+let ball = { x: canvas.width / 2, y: canvas.height / 2, radius: 25, color: 'blue' };
 let targets = [];
 const targetCount = 4;
-const targetRadius = 40;
+const targetRadius = 35;
 let gameRunning = false;
 let permissionGranted = false;
 let orientationHandler;
