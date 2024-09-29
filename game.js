@@ -1,10 +1,10 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 let score = 0;
-let ball = { x: canvas.width / 2, y: canvas.height / 2, radius: 10, color: 'blue' };
+let ball = { x: canvas.width / 2, y: canvas.height / 2, radius: 20, color: 'blue' };
 let targets = [];
 const targetCount = 4;
-const targetRadius = 15;
+const targetRadius = 25;
 let gameRunning = false;
 let permissionGranted = false;
 let orientationHandler;
@@ -71,8 +71,8 @@ function handleOrientation(event) {
     const tiltY = event.gamma; // 左右倾斜
 
     // 根据倾斜度移动小球
-    ball.x += tiltY / 5;
-    ball.y += tiltX / 5;
+    ball.x += tiltY / 3;
+    ball.y += tiltX / 3;
 
     // 限制小球在画布内移动
     if (ball.x < ball.radius) ball.x = ball.radius;
