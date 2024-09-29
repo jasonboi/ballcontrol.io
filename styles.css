@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+#gameContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    left: -150px; /* 将画布向左移动 */
+}
+
+#gameCanvas {
+    border: 1px solid #333;
+}
+
+#scoreDisplay {
+    position: absolute;
+    top: 40px; /* 将Score向下移动 */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 36px; /* 字号 */
+    font-family: 'Times New Roman', sans-serif; /* Times New Roman，回退到 sans-serif */
+    z-index: 1;
+}
+
+#controls {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    font-size: 24px;
+    padding: 15px 30px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+#permissionButton {
+    background-color: #2196F3;
+}
+
+#startButton {
+    background-color: #8BC34A;
+}
+
+#stopButton {
+    background-color: #F44336;
+}
