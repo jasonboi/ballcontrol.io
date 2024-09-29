@@ -43,7 +43,7 @@ function draw() {
     });
 
     // 显示分数
-    document.getElementById('score').innerText = 'Score: ' + score;
+    document.getElementById('scoreDisplay').innerText = 'Score: ' + score;
 }
 
 // 检查碰撞
@@ -143,13 +143,15 @@ function stopGame() {
 }
 
 // 绑定按钮点击事件
-const requestPermissionButton = document.getElementById('requestPermissionButton');
-const startButton = document.getElementById('startButton');
-const stopButton = document.getElementById('stopButton');
+document.addEventListener('DOMContentLoaded', () => {
+    const requestPermissionButton = document.getElementById('permissionButton');
+    const startButton = document.getElementById('startButton');
+    const stopButton = document.getElementById('stopButton');
 
-requestPermissionButton.addEventListener('click', requestDeviceOrientation);
-startButton.addEventListener('click', startGame);
-stopButton.addEventListener('click', stopGame);
+    requestPermissionButton.addEventListener('click', requestDeviceOrientation);
+    startButton.addEventListener('click', startGame);
+    stopButton.addEventListener('click', stopGame);
+});
 
 // 初始化画布
 generateTargets();
