@@ -3,44 +3,48 @@ body {
     overflow: hidden;
     background-color: #f0f0f0;
     font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: flex-start; /* 更靠左对齐 */
+    align-items: center; /* 内容居中（垂直居中） */
+    height: 100vh;
 }
 
 #gameContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
     position: relative;
-    left: -150px; /* 将画布向左移动 */
+    width: 65vw;  /* 画布占据宽度的60% */
+    height: 65vh; /* 画布占据高度的60% */
+    margin-bottom: 10px; /* 底部留出少量边距，稍微上移 */
+    margin-left: 70px;  /* 左侧留边，确保不紧贴屏幕 */
 }
 
 #gameCanvas {
     border: 1px solid #333;
+    width: 100%; /* 画布宽度适应容器 */
+    height: 100%; /* 画布高度适应容器 */
 }
 
 #scoreDisplay {
     position: absolute;
-    top: 50px; /* 将Score向下移动 */
+    top: -40px; /* 分数显示在画布正上方，留出一些空间 */
     left: 50%;
     transform: translateX(-50%);
-    font-size: 48px; /* 字号 */
-    font-family: 'Times New Roman', sans-serif; /* Times New Roman，回退到 sans-serif */
+    font-size: 3vw; /* 字体大小相对于视口宽度 */
+    font-family: 'Times New Roman', sans-serif;
     z-index: 1;
 }
 
 #controls {
     position: absolute;
     top: 50%;
-    right: 20px;
+    right: 10vw;  /* 将按钮更靠近画布右侧 */
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
 }
 
 button {
-    font-size: 24px;
-    padding: 15px 30px;
+    font-size: 1.5vw; /* 按钮文字大小 */
+    padding: 10px 20px;
     margin: 10px 0;
     border: none;
     border-radius: 5px;
