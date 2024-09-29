@@ -14,7 +14,7 @@ resizeCanvas();
 window.addEventListener('resize', resizeCanvas);
 
 let score = 0;
-let ball = { x: canvas.width / 2, y: canvas.height / 2, radius: 25, color: 'blue' };
+let ball = { x: canvas.width / 2, y: canvas.height / 2, radius: 25, color: '#30475E' };
 let targets = [];
 const targetCount = 4;
 const targetRadius = 35;
@@ -30,7 +30,7 @@ function generateTargets() {
             x: Math.random() * (canvas.width - 2 * targetRadius) + targetRadius,
             y: Math.random() * (canvas.height - 2 * targetRadius) + targetRadius,
             radius: targetRadius,
-            color: 'red',
+            color: '#F05454',
         });
     }
 }
