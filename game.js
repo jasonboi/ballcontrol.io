@@ -5,6 +5,9 @@ let ball = { x: canvas.width / 2, y: canvas.height / 2, radius: 10, color: 'blue
 let targets = [];
 const targetCount = 4;
 const targetRadius = 15;
+let gameRunning = false;
+let permissionGranted = false;
+let orientationHandler;
 
 // 初始化目标位置
 function generateTargets() {
@@ -62,6 +65,8 @@ function checkCollision() {
 
 // 处理设备方向
 function handleOrientation(event) {
+    if (!gameRunning) return;
+
     const tiltX = event.beta;  // 前后倾斜
     const tiltY = event.gamma; // 左右倾斜
 
@@ -87,7 +92,9 @@ async function requestDeviceOrientation() {
         try {
             const permissionState = await DeviceOrientationEvent.requestPermission();
             if (permissionState === 'granted') {
-                window.addEventListener('deviceorientation', handleOrientation);
+                permissionGranted = true;
+                alert('Permission granted');
+                document.getElementById('startButton').disabled = false;
             } else {
                 alert('Permission was denied');
             }
@@ -97,19 +104,53 @@ async function requestDeviceOrientation() {
     } else if ('DeviceOrientationEvent' in window) {
         // 非 iOS 13+ 设备
         window.addEventListener('deviceorientation', handleOrientation);
+        permissionGranted = true;
+        document.getElementById('startButton').disabled = false;
     } else {
         // 不支持设备方向事件
         alert('Device orientation not supported on this device');
     }
 }
 
-// 绑定按钮点击事件
-const startButton = document.getElementById('startButton');
-startButton.addEventListener('click', () => {
-    requestDeviceOrientation();
-    startButton.style.display = 'none'; // 隐藏按钮
-});
+// 开始游戏
+function startGame() {
+    if (!permissionGranted) {
+        alert('Please request permission first.');
+        return;
+    }
 
-// 游戏主循环
+    gameRunning = true;
+    score = 0;
+    ball.x = canvas.width / 2;
+    ball.y = canvas.height / 2;
+    generateTargets();
+    draw();
+
+    if (!orientationHandler) {
+        orientationHandler = handleOrientation;
+        window.addEventListener('deviceorientation', orientationHandler);
+    }
+
+    document.getElementById('stopButton').disabled = false;
+    document.getElementById('startButton').disabled = true;
+}
+
+// 停止游戏
+function stopGame() {
+    gameRunning = false;
+    document.getElementById('startButton').disabled = false;
+    document.getElementById('stopButton').disabled = true;
+}
+
+// 绑定按钮点击事件
+const requestPermissionButton = document.getElementById('requestPermissionButton');
+const startButton = document.getElementById('startButton');
+const stopButton = document.getElementById('stopButton');
+
+requestPermissionButton.addEventListener('click', requestDeviceOrientation);
+startButton.addEventListener('click', startGame);
+stopButton.addEventListener('click', stopGame);
+
+// 初始化画布
 generateTargets();
 draw();
