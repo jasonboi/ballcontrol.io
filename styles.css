@@ -21,10 +21,10 @@ body {
 
 #scoreDisplay {
     position: absolute;
-    top: 40px; /* 将Score向下移动 */
+    top: 50px; /* 将Score向下移动 */
     left: 50%;
     transform: translateX(-50%);
-    font-size: 36px; /* 字号 */
+    font-size: 48px; /* 字号 */
     font-family: 'Times New Roman', sans-serif; /* Times New Roman，回退到 sans-serif */
     z-index: 1;
 }
