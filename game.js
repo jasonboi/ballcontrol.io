@@ -1,5 +1,18 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
+
+// 动态调整画布大小的函数
+function resizeCanvas() {
+    canvas.width = window.innerWidth * 0.9; // 宽度为视口的90%
+    canvas.height = canvas.width * 9 / 16;  // 保持16:9的比例
+}
+
+// 初始化时调整画布大小
+resizeCanvas();
+
+// 窗口大小变化时调整画布大小
+window.addEventListener('resize', resizeCanvas);
+
 let score = 0;
 let ball = { x: canvas.width / 2, y: canvas.height / 2, radius: 25, color: 'blue' };
 let targets = [];
@@ -21,6 +34,8 @@ function generateTargets() {
         });
     }
 }
+
+
 
 // 绘制小球和目标
 function draw() {
